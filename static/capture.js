@@ -1,5 +1,5 @@
 var socket=io.connect('https://intense-beyond-58399.herokuapp.com/');
-var socket2=io.connect('localhost:5300');
+var socket2=io.connect('https://ancient-citadel-55722.herokuapp.com/');
 //var socket=io.connect('https://intense-beyond-58399.herokuapp.com/');
 var video = document.getElementById('video');
 // Get access to the camera!
