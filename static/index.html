@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+	<title>WebRTC: Still photo capture demo</title>
+	<meta charset='utf-8'>
+	<script src="./socket.io.js"></script>
+</head>
+<body>
+    <p>please enter your broadcasting id</p>
+    <input type="text" id="id">
+    <button id="btn">broadcast</button>
+    
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <img id="img1">
+    <script src="capture.js"></script>
+</body>
+</html>

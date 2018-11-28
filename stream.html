@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Streaming</title>
+        <script src="./socket.io.js"></script>
+    </head>
+    <body>
+        <p>please enter the camera id you wish to view</p>
+        <input id="id" type="text">
+        <button onclick="but()">button</button>
+       <img id="img"></img>
+
+        <script>
+
+            //var socket=io.connect('https://intense-beyond-58399.herokuapp.com/');
+            //var socket=io.connect('localhost:5100');           
+            //video=document.getElementById('img');
+            var image='';
+            var host='';
+            function but(){
+                if(document.getElementById('id').value=="dike"){host='localhost:5300'}
+                else if(document.getElementById('id').value=="ifeanyi"){host='https://intense-beyond-58399.herokuapp.com/';}
+                var socket=io.connect(host); 
+              image=document.getElementById('id').value;
+              console.log(image);
+            
+        
+                socket.on('image', (data)=>{  
+                    document.getElementById('img').src=data;     
+                });
+            }
+    
+            </script>
+    </body>
+</html>
