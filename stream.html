@@ -2,33 +2,168 @@
     <head>
         <title>Streaming</title>
         <script src="./socket.io.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
+            <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>                        
+                        </button>
+                        <a class="navbar-brand" href="#">SmartCity</a>
+                      </div>
+                      <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="#">Home</a></li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">CameraOption<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Settings</a></li>
+                              <li><a href="#">VideoRecord</a></li>
+                              <li><a href="#">Audio</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+
+
+          <div class="container">
+                <table class="table table-bordered">
+               <tr>
+                   <td>
+                        <div class="col-md-15">
+                                <div class="thumbnail">
+                                  
+                                    <img src="./loading.gif"  id="img"  alt="Lights" style="width:100%">
+                                    <div class="caption">
+                                            <p><input id="id" class="form-control" placeholder="camera id" type="text"><button class="btn btn-primary btn-block" onclick="but()">View</button></p>
+                                    </div>
+                                  
+                                </div>
+                              </div>
+                   </td>
+                   <td>
+                        <div class="col-md-15">
+                                <div class="thumbnail">
+                                 
+                                    <img src="./loading.gif"  id="img2"  alt="Lights" style="width:100%">
+                                    <div class="caption">
+                                            <p><input id="id2" class="form-control" placeholder="camera id" type="text"><button class="btn btn-primary btn-block" onclick="but2()">View</button></p>
+                                    </div>
+                                  
+                                </div>
+                              </div>
+                   </td>
+               </tr>
+               <tr>
+                    <td>
+                            <div class="col-md-15">
+                                    <div class="thumbnail">
+                                      
+                                        <img src="./loading.gif"  id="img3"  alt="Lights" style="width:100%">
+                                        <div class="caption">
+                                                <p><input id="id3" class="form-control" placeholder="camera id" type="text"><button class="btn btn-primary btn-block" onclick="but3()">View</button></p>
+                                        </div>
+                                      
+                                    </div>
+                                  </div>
+                    </td>
+                    <td>
+                            <div class="col-md-15">
+                                    <div class="thumbnail">
+                                      
+                                        <img src="./loading.gif" id="img4"  alt="Lights" style="width:100%">
+                                        <div class="caption">
+                                          <p><input id="id4" class="form-control" placeholder="camera id" type="text"><button class="btn btn-primary btn-block" onclick="but4()">View</button></p>
+                                        </div>
+                                      
+                                    </div>
+                                  </div>
+                    </td>                   
+               </tr>
+             </table>
+
+          </div>        
         <p>please enter the camera id you wish to view</p>
         <input id="id" type="text">
         <button onclick="but()">button</button>
-       <img id="img"></img>
+      
 
         <script>
 
             //var socket=io.connect('https://intense-beyond-58399.herokuapp.com/');
             //var socket=io.connect('localhost:5100');           
             //video=document.getElementById('img');
-            var image='';
+            
             var host='';
             function but(){
+                var image;
                 if(document.getElementById('id').value=="dike"){host='https://ancient-citadel-55722.herokuapp.com/'}
                 else if(document.getElementById('id').value=="ifeanyi"){host='https://intense-beyond-58399.herokuapp.com/';}
                 var socket=io.connect(host); 
-              image=document.getElementById('id').value;
-              console.log(image);
+                image=document.getElementById('id').value;
+                console.log(image);
             
         
                 socket.on('image', (data)=>{  
-                    document.getElementById('img').src=data;     
+                    document.getElementById('img').src=data;  
                 });
             }
-    
+
+            function but2(){
+                var image;
+                if(document.getElementById('id2').value=="dike"){host='https://ancient-citadel-55722.herokuapp.com/'}
+                else if(document.getElementById('id2').value=="ifeanyi"){host='https://intense-beyond-58399.herokuapp.com/';}
+                var socket=io.connect(host); 
+                image=document.getElementById('id2').value;
+                console.log(image);
+            
+        
+                socket.on('image', (data)=>{  
+                    document.getElementById('img2').src=data;  
+                });
+            }   
+            function but3(){
+                var image;
+                if(document.getElementById('id3').value=="dike"){host='https://ancient-citadel-55722.herokuapp.com/'}
+                else if(document.getElementById('id3').value=="ifeanyi"){host='https://intense-beyond-58399.herokuapp.com/';}
+                var socket=io.connect(host); 
+                image=document.getElementById('id3').value;
+                console.log(image);
+            
+        
+                socket.on('image', (data)=>{  
+                    document.getElementById('img3').src=data;  
+                });
+            }  
+            function but4(){
+                var image;
+                if(document.getElementById('id4').value=="dike"){host='https://ancient-citadel-55722.herokuapp.com/'}
+                else if(document.getElementById('id4').value=="ifeanyi"){host='https://intense-beyond-58399.herokuapp.com/';}
+                var socket=io.connect(host); 
+                image=document.getElementById('id4').value;
+                console.log(image);
+            
+        
+                socket.on('image', (data)=>{  
+                    document.getElementById('img4').src=data;  
+                });
+            } 
             </script>
     </body>
 </html>

@@ -20,6 +20,9 @@ app.use(express.static('./static'));
 app.get('/stream', (req,res)=>{
     res.sendFile(path.join(__dirname, './stream.html'));
 });
+app.get('/style', (req,res)=>{
+   res.sendFile(path.join(__dirname, './static/css/bootstrap.min.css'));
+});
 
 /*app2.use(express.static('./static'));
 
